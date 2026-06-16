@@ -1,22 +1,22 @@
 # Yindong Codex Skills
 
-用于结构化金融科技中台产品协作的 Codex Skills。
+用于结构化产品协作的 Codex Skills。
 
-Codex skills for structured fintech mid-platform product collaboration.
+Codex skills for structured product collaboration.
 
 ## 中文说明
 
 这个仓库沉淀了一组 Codex skills，用于支持复杂产品需求、平台能力设计、PRD 编写与审查、MVP 范围控制等工作。
 
-这些 skills 主要适用于金融科技中台类产品场景，例如：
+这些 skills 主要适用于复杂产品和平台型产品场景，例如：
 
-- Lending / Credit
-- Payment / Repayment
-- Approval Center
-- ABS / Funding
-- Risk
-- Configuration Platform
-- Cross-system Product Governance
+- 复杂需求从 0 到 1 梳理
+- 平台能力抽象
+- 跨系统协作
+- PRD 编写与审查
+- MVP 范围控制
+- 产品决策支持
+- 产品治理和长期知识沉淀
 
 它们的目标不是生成通用 PM 文档，而是帮助 AI 按照更稳定的产品操作逻辑进行协作：
 
@@ -32,7 +32,7 @@ Codex skills for structured fintech mid-platform product collaboration.
 
 ### `yindong-product-operating-system`
 
-金融科技中台产品协作的核心操作系统。
+复杂产品协作的核心操作系统。
 
 适用于：
 
@@ -123,9 +123,9 @@ Use $yindong-scope-governor to assess whether this change belongs in Phase 1.
 
 ## English
 
-This repository contains Codex skills for complex fintech mid-platform product work, including product requirements, platform capability design, PRD drafting and review, and MVP scope control.
+This repository contains Codex skills for complex product work, including product requirements, platform capability design, PRD drafting and review, and MVP scope control.
 
-They are designed for cross-system product scenarios such as lending, payment, approval, ABS, funding, risk, configuration platforms, and product governance.
+They are designed for complex product scenarios involving cross-system collaboration, platform capabilities, product governance, and long-term knowledge reuse.
 
 The goal is not to generate generic PM documentation. The goal is to help AI collaborate with a more stable product operating logic:
 
@@ -141,7 +141,7 @@ The goal is not to generate generic PM documentation. The goal is to help AI col
 
 ### `yindong-product-operating-system`
 
-Core operating rules for fintech mid-platform product collaboration.
+Core operating rules for complex product collaboration.
 
 Use for platform capability abstraction, system-boundary reasoning, reuse-first design, flow-first thinking, operational risk analysis, MVP boundary control, decision support, and challenge mode.
 
@@ -166,4 +166,3 @@ Use before drafting when deciding whether a change belongs in the current phase,
 ## License
 
 No license has been added yet.
-

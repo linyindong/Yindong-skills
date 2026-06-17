@@ -1,10 +1,10 @@
 # Yindong Codex Skills
 
-Codex skills for structured product collaboration.
+Codex skills for structured product collaboration, PRD writing, PRD review, platform product thinking, and MVP scope control.
 
-This repository contains a small set of Codex skills for complex product work, including product requirements, platform capability design, PRD drafting and review, and MVP scope control.
+This repository contains a small set of Codex skills for product managers and product teams working on complex requirements, platform capabilities, workflow products, internal tools, and cross-system collaboration.
 
-They are designed for product scenarios involving cross-system collaboration, platform capabilities, product governance, and long-term knowledge reuse.
+They are designed for product scenarios involving cross-system collaboration, platform capability design, product governance, operational workflows, PRD/BRD drafting, engineering readiness review, and long-term knowledge reuse.
 
 The goal is not to generate generic PM documentation. The goal is to help AI collaborate with a more stable product operating logic:
 
@@ -15,6 +15,40 @@ The goal is not to generate generic PM documentation. The goal is to help AI col
 - cover states, data models, APIs, edge cases, and operational closure
 - protect MVP boundaries
 - actively challenge gaps during PRD review
+
+## Quick Start: Which Skill Should I Use?
+
+Use these four skills at different stages of a product requirement:
+
+| Situation | Use this skill | What it helps with |
+|---|---|---|
+| You have not figured out the direction yet | `yindong-product-operating-system` | Clarify the business problem, system boundary, reusable platform capability, flow, ownership, and operating model. |
+| You are ready to write the document | `yindong-prd-builder` | Turn rough notes, ideas, meeting notes, or prototypes into a structured PRD/BRD or requirement section. |
+| You are unsure whether something belongs in the current phase | `yindong-scope-governor` | Assess MVP scope, hidden complexity, include/defer decisions, and phase boundaries. |
+| The document is written and needs review | `yindong-prd-reviewer` | Check logic closure, ownership, flow, data/API readiness, edge cases, operations, rollout risk, and open questions. |
+
+In short:
+
+- Not clear on direction yet: use `product-operating-system`
+- Ready to write: use `prd-builder`
+- Unsure whether to include it now: use `scope-governor`
+- Finished writing and need a review: use `prd-reviewer`
+
+## Who This Is For
+
+These skills may be useful if you work on:
+
+- product management
+- PRD / BRD writing
+- internal tools or back-office systems
+- platform products or middle-platform capabilities
+- workflow, approval, configuration, risk, finance, or operations systems
+- cross-team product and engineering collaboration
+- MVP scope control and implementation-readiness review
+
+## Keywords
+
+Codex skills, product management, PRD, BRD, PRD review, platform product, internal tools, back-office systems, workflow systems, MVP scope, product operations, AI product management.
 
 ## Visual Overview
 
@@ -184,7 +218,7 @@ No license has been added yet.
 
 # 中文说明
 
-用于结构化产品协作的 Codex Skills。
+用于结构化产品协作、PRD 编写、PRD Review、平台型产品思考和 MVP 范围控制的 Codex Skills。
 
 这个仓库沉淀了一组 Codex skills，用于支持复杂产品需求、平台能力设计、PRD 编写与审查、MVP 范围控制等工作。
 
@@ -207,6 +241,40 @@ No license has been added yet.
 - 关注状态、数据模型、API、edge cases 和运营闭环
 - 控制 MVP 范围，避免隐藏 scope expansion
 - 在 PRD review 中主动挑战逻辑缺口
+
+## 快速理解：什么时候用哪个 Skill？
+
+这 4 个 skills 对应一个需求从想清楚到写出来、控范围、再 review 的不同阶段：
+
+| 场景 | 使用哪个 skill | 它主要帮你做什么 |
+|---|---|---|
+| 还没想清楚方向 | `yindong-product-operating-system` | 梳理业务问题、系统边界、平台能力、flow、ownership 和运营闭环。 |
+| 已经要写文档 | `yindong-prd-builder` | 把粗略想法、会议记录、原型或零散笔记整理成结构化 PRD/BRD。 |
+| 不确定要不要做、或本期做多少 | `yindong-scope-governor` | 判断 MVP 范围、隐藏复杂度、include/defer、阶段边界。 |
+| 文档写完要检查 | `yindong-prd-reviewer` | 检查逻辑闭环、owner、flow、API/data、edge cases、运营和 rollout 风险。 |
+
+简单记：
+
+- 还没想清楚方向：用 `product-operating-system`
+- 已经要写文档：用 `prd-builder`
+- 不确定要不要做/本期做多少：用 `scope-governor`
+- 文档写完要检查：用 `prd-reviewer`
+
+## 适合谁使用？
+
+如果你在做这些事情，这组 skills 可能会有帮助：
+
+- 产品经理日常需求分析
+- PRD / BRD 编写
+- 中后台、内部工具、运营系统
+- 平台型产品或中台能力建设
+- 审批、配置、风控、财务、运营流程类系统
+- 跨团队产品和研发协作
+- MVP 范围控制和工程评审准备
+
+## 关键词
+
+Codex skills、产品经理、PRD、BRD、PRD Review、平台型产品、中后台、内部工具、流程系统、MVP 范围控制、产品运营、AI 产品协作。
 
 ## 图片概览
 

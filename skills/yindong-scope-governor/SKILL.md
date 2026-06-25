@@ -1,11 +1,21 @@
 ---
 name: yindong-scope-governor
-description: Assess MVP scope, phase boundaries, change impact, and hidden complexity for complex product requirements. Use when the user asks whether a change is big, whether to include something in this phase, how to split MVP vs future iteration, or when a feature may affect data objects, permissions, workflow, UI, APIs, operations, rollout, migration, or platform consistency.
+description: Assess MVP scope, phase boundaries, build risk, change impact, and hidden complexity for product requirements. Use when the user asks whether to include something now, whether a request is actually big, how to split MVP vs future iteration, whether to validate before building, or when a feature may affect data objects, permissions, workflow, UI, APIs, operations, rollout, migration, ownership, or platform consistency.
 ---
 
 # Yindong Scope Governor
 
 Use this skill before drafting when the user is exploring whether a requirement belongs in the current phase.
+
+## Operating Modes
+
+Choose one mode before answering:
+
+- MVP inclusion gate: decide whether the change belongs in the current phase.
+- Hidden complexity scan: expand a "small request" into real system, ops, and rollout impact.
+- Phase split: separate MVP, compatibility placeholder, future iteration, and out-of-scope behavior.
+- Validation gate: decide whether demand evidence is strong enough to build now.
+- Change impact review: evaluate impact across flow, data, UI, API, permissions, operations, and migration.
 
 ## When NOT to Use
 
@@ -63,6 +73,8 @@ For feature requests, separate demand evidence from opinions:
 - Stronger signals: repeated workflow blocker, revenue/retention impact, manual workaround, regulatory/ops requirement, production incident
 
 If evidence is weak but the idea may matter, recommend a low/no-build validation step before PRD drafting.
+
+For detailed verdict definitions and impact criteria, read `references/scope-decision-rubric.md` when the decision is high-stakes, cross-system, or contested.
 
 ## Small Request Expansion Check
 
@@ -160,3 +172,32 @@ Ask:
 - State what remains stable if deferred.
 - Route to the next skill or artifact after the scope decision.
 - Avoid drafting detailed PRD sections until the phase decision is clear.
+
+## Output Contract
+
+Default answer shape:
+
+1. Selected mode, when useful
+2. Verdict
+3. Biggest risk
+4. Impact summary
+5. Recommended MVP boundary
+6. Validation or simplification step
+7. What to document next, and which skill/artifact should handle it
+
+For quick questions, keep the answer short but still include a verdict.
+
+## Quality Checklist
+
+Before finalizing, verify:
+
+- [ ] The verdict is explicit.
+- [ ] The biggest risk is named.
+- [ ] Build evidence is separated from opinions.
+- [ ] Current phase and future phase are not mixed.
+- [ ] Hidden impact across data, flow, ownership, API, UI, operations, rollout, and migration is considered.
+- [ ] The next route is clear: PRD builder, operating-system framing, PRD reviewer, validation, or RFC follow-up.
+
+## References
+
+- `references/scope-decision-rubric.md`: load for detailed verdict criteria, high-stakes scope decisions, or contested MVP tradeoffs.

@@ -1,10 +1,15 @@
-# Yindong Codex Skills
+# Product Management Agent Skills for PRD, Scope, and Platform Product Work
 
-Codex skills for structured product collaboration, PRD writing, PRD review, platform product thinking, and MVP scope control.
+Yindong Skills is a Codex skills library for product managers working on PRD writing, PRD review, MVP scope control, platform product design, and cross-system product collaboration.
 
-This repository contains a small set of Codex skills for product managers and product teams working on complex requirements, platform capabilities, workflow products, internal tools, and cross-system collaboration.
+It is especially useful for product teams working on complex requirements, platform capabilities, workflow products, internal tools, back-office systems, fintech/platform products, and engineering-readiness review.
 
-They are designed for product scenarios involving cross-system collaboration, platform capability design, product governance, operational workflows, PRD/BRD drafting, engineering readiness review, and long-term knowledge reuse.
+The repository currently includes four Codex skills under the Yindong Skills name:
+
+- `yindong-product-operating-system`
+- `yindong-prd-builder`
+- `yindong-scope-governor`
+- `yindong-prd-reviewer`
 
 The goal is not to generate generic PM documentation. The goal is to help AI collaborate with a more stable product operating logic:
 
@@ -34,21 +39,72 @@ In short:
 - Unsure whether to include it now: use `scope-governor`
 - Finished writing and need a review: use `prd-reviewer`
 
-## Who This Is For
+## Use Cases
 
-These skills may be useful if you work on:
+This skill library is useful for:
 
-- product management
-- PRD / BRD writing
-- internal tools or back-office systems
-- platform products or middle-platform capabilities
-- workflow, approval, configuration, risk, finance, or operations systems
-- cross-team product and engineering collaboration
-- MVP scope control and implementation-readiness review
+- writing PRDs from rough product notes, meeting notes, or prototypes
+- reviewing PRDs before product or engineering review
+- separating MVP scope from future iterations
+- turning business requirements into reusable platform capabilities
+- clarifying ownership, source of truth, status, flow, and operational risk
+- preparing requirement documents for engineering, QA, operations, risk, finance, or partner review
+- working on internal tools, workflow products, back-office systems, and fintech/platform product scenarios
+
+## Best Fit
+
+Best suited for:
+
+- product managers
+- platform product managers
+- fintech product teams
+- internal tool and back-office product teams
+- teams working on workflow, approval, configuration, risk, finance, operations, or cross-system products
+- product leaders who want AI to support structured thinking, decision quality, and requirement governance
+
+## Not Designed For
+
+These skills are not optimized for:
+
+- consumer marketing copy
+- pure UI visual critique
+- pure engineering implementation plans
+- generic startup idea brainstorming without product or system grounding
+- personal profiling or personality analysis
+
+## What This Library Optimizes For
+
+The skills are designed as reusable workflows rather than long prompts. Each skill now emphasizes:
+
+- clear trigger and non-use boundaries
+- operating modes for different request types
+- explicit output contracts
+- quality checks before final output
+- routing to the next suitable skill or artifact
+- progressive disclosure through optional `references/` files for detailed rubrics and templates
 
 ## Keywords
 
-Codex skills, product management, PRD, BRD, PRD review, platform product, internal tools, back-office systems, workflow systems, MVP scope, product operations, AI product management.
+Codex skills, agent skills, product management, product manager AI, PRD, BRD, PRD review, product requirements, MVP scope, scope management, platform product, fintech product, internal tools, back-office systems, workflow systems, product operations, product governance, AI product management.
+
+Suggested GitHub topics:
+
+```text
+codex-skills
+agent-skills
+product-management
+prd
+prd-review
+product-requirements
+platform-product
+scope-management
+mvp
+fintech
+internal-tools
+workflow
+back-office
+product-ops
+```
 
 ## Visual Overview
 
@@ -210,17 +266,27 @@ These skills intentionally avoid personal profiling. They focus on observable wo
 - operational sustainability
 - direct and structured communication
 
+## Research and Design Notes
+
+- [Top Agent Skills Repository Best Practices](docs/top-agent-skills-repository-best-practices.md)
+- [Yindong Skills Design Standard](docs/skill-design-standard.md)
+
 ## License
 
 No license has been added yet.
 
 ---
 
-# 中文说明
+# 中文说明：产品经理 Agent Skills，用于 PRD、范围控制和平台型产品协作
 
-用于结构化产品协作、PRD 编写、PRD Review、平台型产品思考和 MVP 范围控制的 Codex Skills。
+Yindong Skills 是一组面向产品经理的 Codex skills，用于结构化产品协作、PRD 编写、PRD Review、MVP 范围控制、平台型产品设计和跨系统协作。
 
-这个仓库沉淀了一组 Codex skills，用于支持复杂产品需求、平台能力设计、PRD 编写与审查、MVP 范围控制等工作。
+这个仓库目前包含 4 个 skills：
+
+- `yindong-product-operating-system`
+- `yindong-prd-builder`
+- `yindong-scope-governor`
+- `yindong-prd-reviewer`
 
 这些 skills 主要适用于复杂产品和平台型产品场景，例如：
 
@@ -260,21 +326,72 @@ No license has been added yet.
 - 不确定要不要做/本期做多少：用 `scope-governor`
 - 文档写完要检查：用 `prd-reviewer`
 
-## 适合谁使用？
+## 主要使用场景
 
-如果你在做这些事情，这组 skills 可能会有帮助：
+这组 skills 适合用于：
 
-- 产品经理日常需求分析
-- PRD / BRD 编写
-- 中后台、内部工具、运营系统
-- 平台型产品或中台能力建设
-- 审批、配置、风控、财务、运营流程类系统
-- 跨团队产品和研发协作
-- MVP 范围控制和工程评审准备
+- 从零散产品笔记、会议记录、原型整理 PRD
+- 在产品评审或研发评审前 Review PRD
+- 拆分 MVP 范围和 future iteration
+- 从业务需求抽象平台能力
+- 梳理 ownership、source of truth、状态、flow 和运营风险
+- 为研发、QA、运营、风控、财务或外部合作方评审准备需求材料
+- 中后台、内部工具、流程产品、金融科技或平台型产品场景
+
+## 最适合的人群和团队
+
+适合：
+
+- 产品经理
+- 平台产品经理
+- 金融科技产品团队
+- 中后台 / 内部工具产品团队
+- 做审批、配置、风控、财务、运营、流程或跨系统协作的团队
+- 希望 AI 不只是写文档，而是参与结构化思考、决策支持和需求治理的产品负责人
+
+## 不适合的场景
+
+这组 skills 不主要用于：
+
+- 消费品营销文案
+- 纯 UI 视觉评审
+- 纯研发实现方案
+- 没有产品或系统背景的泛创业点子 brainstorming
+- 个人画像或性格分析
+
+## 这组 Skills 优化的重点
+
+这组 skills 不是单纯的长 Prompt，而是可复用的工作流。当前版本重点强化：
+
+- 清晰的触发条件和不适用边界
+- 针对不同请求类型的 operating modes
+- 明确的 output contract
+- 输出前的质量检查
+- 到下一个合适 skill 或 artifact 的路由
+- 通过 `references/` 做渐进式加载，把详细 rubric 和模板放在需要时再读
 
 ## 关键词
 
-Codex skills、产品经理、PRD、BRD、PRD Review、平台型产品、中后台、内部工具、流程系统、MVP 范围控制、产品运营、AI 产品协作。
+Codex skills、agent skills、产品经理、AI 产品经理、PRD、BRD、PRD Review、产品需求、MVP 范围控制、scope management、平台型产品、金融科技产品、中后台、内部工具、流程系统、产品运营、产品治理、AI 产品协作。
+
+建议 GitHub topics：
+
+```text
+codex-skills
+agent-skills
+product-management
+prd
+prd-review
+product-requirements
+platform-product
+scope-management
+mvp
+fintech
+internal-tools
+workflow
+back-office
+product-ops
+```
 
 ## 图片概览
 
@@ -425,6 +542,11 @@ cp -R skills/yindong-scope-governor ~/.codex/skills/
 - flow-first 产品推理
 - 运营可持续性
 - 实用、直接、结构化的沟通
+
+## 研究和设计说明
+
+- [Top Agent Skills Repository Best Practices](docs/top-agent-skills-repository-best-practices.md)
+- [Yindong Skills Design Standard](docs/skill-design-standard.md)
 
 ## License
 

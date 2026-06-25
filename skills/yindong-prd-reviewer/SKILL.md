@@ -1,6 +1,6 @@
 ---
 name: yindong-prd-reviewer
-description: Review PRDs, product requirement drafts, platform designs, prototypes, and requirement sections with product-logic-first judgment, then assess system ownership, flow completeness, state consistency, data/API readiness, edge cases, operational handling, rollout risk, and RFC/engineering follow-up needs. Use when the user asks to check, review, validate, find gaps, see if logic is closed-loop, score a PRD, or assess whether a PRD is ready for product or engineering review.
+description: Review PRDs, product requirement drafts, platform designs, prototypes, and requirement sections with product-logic-first judgment and artifact-size calibration. Use when the user asks to check, review, validate, score, find gaps, assess whether logic is closed-loop, compare small-feature vs 0-to-1 platform readiness, or decide whether a PRD is ready for product review, engineering review, RFC follow-up, or further scope clarification.
 ---
 
 # Yindong PRD Reviewer
@@ -8,6 +8,16 @@ description: Review PRDs, product requirement drafts, platform designs, prototyp
 Use this skill in review mode. Prioritize product logic, business closure, scope clarity, ownership, and user/ops outcomes over wording polish or engineering checklist detail. Do not rewrite the document unless the user asks.
 
 First calibrate the review depth. A short feature PRD, implementation note, API change note, one-page alignment doc, and large 0-to-1 platform PRD should not be judged by the same completeness standard.
+
+## Operating Modes
+
+Choose one review mode before writing findings:
+
+- PM-friendly review: judge whether the product logic is understandable and what must be fixed next.
+- Engineering-readiness review: check ownership, state, data/API, rollout, audit, and operational completeness.
+- Small-feature calibration: review a short or local PRD without forcing full platform standards.
+- 0-to-1 platform calibration: apply strict cross-system, lifecycle, source-of-truth, and operations standards.
+- Readiness scoring: produce a score/readiness ladder and explain what moves it to the next band.
 
 ## When NOT to Use
 
@@ -184,6 +194,8 @@ For large, cross-system, compliance-sensitive, or platform PRDs, split scoring w
 
 Explain which dimension drives the lower score. Do not let missing RFC-level implementation details dominate the product logic score when product semantics are clear.
 
+For artifact-specific calibration standards, read `references/review-readiness-rubric.md` when the PRD type is ambiguous, the score is contested, or the document is a short feature PRD, implementation note, migration PRD, configuration UI PRD, operational SOP, external integration PRD, or large 0-to-1 platform PRD.
+
 ## Audience Mode
 
 Choose the output mode based on the user's request and likely audience.
@@ -203,104 +215,6 @@ Engineering readiness review:
 - Put implementation-specific details into RFC follow-up unless they change product behavior or acceptance.
 
 If the user asks for a score, give a score out of 10 only after judging product logic, business closure, and review readiness. Do not anchor the score to writing polish or RFC-level implementation detail.
-
-## Review Calibration
-
-Classify the artifact before applying the checklist.
-
-### Short feature PRD / small functional change
-
-Expected standard:
-
-- Clear business scenario and goal.
-- Clear in-scope behavior.
-- Clear owner for each changed system.
-- Clear API/data contract if any interface changes.
-- Key happy path and major exception path.
-- Rollout or compatibility note if existing users/data are affected.
-
-Do not over-penalize for missing full platform governance sections if the change is genuinely small.
-
-### Implementation note / API change note
-
-Expected standard:
-
-- Exact changed field/API/enum/contract is defined.
-- Source system and persistence owner are clear.
-- Validation/default/backward compatibility behavior is clear.
-- Downstream consumers and migration impact are clear.
-- Examples are sanitized and aligned with the contract.
-
-Call out when the artifact is closer to an implementation note than a complete PRD.
-
-### One-page PRD / BRD / stakeholder alignment doc
-
-Expected standard:
-
-- Concise problem, goal, scope, value, decision points, and high-level flow.
-- Avoid excessive implementation detail.
-- Identify which details must live in a separate PRD or tech spec.
-
-Do not require full API tables unless the one-pager is being used as the only delivery artifact.
-
-### Migration PRD
-
-Expected standard:
-
-- Source and target systems are clear.
-- Migration trigger, sequence, and completion criteria are defined.
-- Data mapping and validation checklist are present.
-- Cutover, rollback, retry, and manual handling are addressed.
-- Ownership for each migration step is explicit.
-
-### Configuration UI PRD
-
-Expected standard:
-
-- Page path or entry point is clear.
-- List fields, filters, create/edit behavior, validation rules, and empty/error states are defined.
-- Permission, audit, and operation logging are covered when the UI changes operational data.
-- Configuration object and runtime effect are not confused.
-
-### Formula / rule logic PRD
-
-Expected standard:
-
-- Rule format and field definitions are explicit.
-- Processing sequence is deterministic.
-- Examples cover normal and edge cases.
-- Backward compatibility and default behavior are clear.
-- Data source and owner of reference data are defined.
-
-### Operational SOP / issue-handling note
-
-Expected standard:
-
-- Trigger condition and owner are clear.
-- Status transition and closure criteria are explicit.
-- Manual handling, audit trail, and exception queue are covered where relevant.
-- The SOP does not hide product/system gaps that should be fixed later.
-
-### External integration PRD
-
-Expected standard:
-
-- System boundary, request/response contract, callback, timeout/retry, idempotency, and error handling are clear.
-- Sandbox/production differences and rollout plan are covered when relevant.
-- Ownership between internal systems and external partner is explicit.
-
-### Large 0-to-1 platform PRD
-
-Expected standard:
-
-- Business problem to reusable platform capability is clear.
-- System boundary and ownership are explicit.
-- Configuration objects and runtime objects are separated.
-- Main flows, state machine, callback/retry/rollback/reconciliation paths are covered.
-- API/data changes, edge cases, rollout, operations, audit, and open questions are complete.
-- MVP, out of scope, not supported in this phase, and future iteration are explicit.
-
-Apply the full checklist strictly.
 
 ## Product PRD / Engineering RFC Boundary
 
@@ -412,3 +326,15 @@ Check PM accessibility:
 - Do not prescribe API, database, queue, retry job, or monitoring implementation unless the user explicitly asks for engineering design.
 - Do not overclaim with "not defined," "missing," "flow is not closed," or "blocking conflict" unless evidence has been checked across readable text, diagrams, tables, comments, screenshots, and linked sections where available.
 - Do not treat an out-of-scope or regulatory-gated item as current-phase risk unless the current-phase flow requires it.
+
+## Routing
+
+- Route to `yindong-prd-builder` when the user wants fixes rewritten into the PRD.
+- Route to `yindong-scope-governor` when the main issue is phase boundary or MVP size.
+- Route to `yindong-product-operating-system` when the business problem, platform direction, or ownership model needs reframing before review.
+- Route RFC-level implementation detail to engineering follow-up while keeping product semantics in the PRD review.
+
+## References
+
+- `references/review-readiness-rubric.md`: load for artifact-specific completeness standards and readiness bands.
+- `references/prd-vs-rfc-boundary.md`: load when review feedback risks mixing product PRD decisions with engineering RFC implementation details.

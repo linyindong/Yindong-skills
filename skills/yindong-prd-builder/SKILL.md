@@ -1,11 +1,21 @@
 ---
 name: yindong-prd-builder
-description: Build professional product requirement documents and PRD sections from rough Chinese/English notes, prototypes, historical PRDs, meeting notes, or early product ideas. Use when the user asks to write, rewrite, translate, structure, enrich, or polish PRD/BRD/requirement content, especially for complex product, platform capability, workflow, configuration, governance, or cross-system product work.
+description: Build or improve professional PRDs, BRDs, requirement sections, and product decision artifacts from rough Chinese/English notes, prototypes, historical PRDs, meeting notes, or early ideas. Use when the user is ready to write, rewrite, translate, structure, enrich, or polish requirement content, especially for platform capability, workflow, configuration, governance, cross-system, or fintech product work.
 ---
 
 # Yindong PRD Builder
 
 Use this skill to convert rough input into structured, implementation-ready product requirements. Do not simply translate. Understand, reorganize, enrich, and preserve precise scope.
+
+## Operating Modes
+
+Choose the lightest mode that satisfies the request:
+
+- Full PRD build: create a complete PRD for a complex or cross-system requirement.
+- Section build: write only requested sections such as background, scope, flow, API/data changes, or rollout.
+- Rewrite / polish: improve structure, clarity, English, or bilingual wording without changing decisions.
+- Input normalization: convert scattered notes into confirmed decisions, assumptions, missing decisions, and engineering-readable language before drafting.
+- Template fit: choose the right artifact type when the request is not necessarily a full PRD.
 
 ## First Move
 
@@ -18,6 +28,8 @@ Briefly identify:
 - artifact type: full PRD, PRD section, one-page BRD, bilingual draft, English rewrite, table, or flow description
 
 If the user only asks for impact or feasibility, do not draft the PRD yet; use impact analysis first.
+
+If the artifact type is unclear, propose the smallest useful artifact and continue unless that choice would create delivery risk.
 
 ## When NOT to Use
 
@@ -160,6 +172,15 @@ Every PRD-style output should make these things testable:
 - Owner/source-of-truth for cross-system behavior
 - Rollout, rollback, or temporary manual handling when relevant
 
+Default response shape:
+
+1. Brief note on selected artifact type, when useful
+2. Drafted PRD content or requested section
+3. Assumptions and open decisions, if any
+4. Suggested next review route: scope check, PRD review, RFC follow-up, or stakeholder confirmation
+
+For detailed PRD templates and artifact-specific output contracts, read `references/prd-output-contract.md` when the task involves a full PRD, 0-to-1 platform PRD, migration PRD, configuration UI PRD, or API/data change note.
+
 ## API / Data Table Style
 
 For API or data changes, default to tables with:
@@ -229,6 +250,13 @@ For cross-system work:
 - Do not over-polish into marketing language.
 - Do not hide open decisions; list them clearly with owner/dependency when known.
 
+## Routing
+
+- Route to `yindong-product-operating-system` when business direction, platform abstraction, or decision framing is not ready.
+- Route to `yindong-scope-governor` when current-phase inclusion, MVP size, or hidden complexity is unresolved.
+- Route to `yindong-prd-reviewer` after drafting when the user wants readiness, gaps, or score.
+- Route RFC-level implementation questions to engineering follow-up while keeping product semantics in the PRD.
+
 ## Quality Checklist
 
 Before finalizing, verify:
@@ -239,3 +267,8 @@ Before finalizing, verify:
 - [ ] Cross-system ownership and source of truth are visible.
 - [ ] Assumptions are separated from confirmed decisions.
 - [ ] Technical considerations are surfaced without over-prescribing implementation.
+- [ ] The next route or review step is explicit.
+
+## References
+
+- `references/prd-output-contract.md`: load when a detailed template, artifact-specific contract, or quality checklist is needed.

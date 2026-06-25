@@ -22,6 +22,75 @@ Start by judging whether the PRD works as a product document:
 
 Keep API fields, error codes, idempotency design, callback retry implementation, storage, queue, job scheduling, and monitoring implementation visible, but classify them as RFC/engineering follow-up unless the missing detail breaks product logic, status consistency, money/contract/approval results, or ownership/source-of-truth decisions.
 
+## Evidence Confidence
+
+Before marking an issue as Fatal/Blocking, classify the evidence basis:
+
+- Confirmed in readable text: directly supported by readable PRD text or table content.
+- Seen in diagram/image: appears in a diagram, screenshot, board, or embedded visual; mention that visual details may need human confirmation if extraction is partial.
+- Not confirmed in readable content: not found in readable text. Do not say "missing" unless diagrams, tables, comments, screenshots, and linked sections were also checked or supplied.
+- Inference: inferred from surrounding context rather than explicitly stated.
+
+When Lark diagrams, boards, images, or embedded objects may contain key flow logic, avoid saying "the PRD does not define X." Prefer: "I could not confirm X in the readable text; if the diagram covers it, downgrade this to a documentation or engineering-readiness gap."
+
+## Lark PRD Reading Limitations
+
+When reviewing Lark Docs, embedded flowcharts, whiteboards, draw.io diagrams, canvases, screenshots, board comments, and linked objects may not be fully machine-readable.
+
+For Lark PRDs:
+
+1. Separate evidence from judgment.
+2. State when a conclusion is based only on readable text.
+3. If a high-risk flow may be inside an embedded diagram, avoid calling it absent unless the diagram was visually inspected or supplied as an image.
+4. Prefer "not confirmed in readable text" over "not written."
+5. Ask for or use screenshots when the user challenges a finding that may be covered in diagrams.
+
+Use an evidence note when the PRD relies heavily on diagrams, the review source is a Lark page, diagrams cannot be fully extracted, or the output contains high-risk findings:
+
+```md
+Evidence note:
+This review is based on readable text/tables and visible snippets available to me. Embedded diagrams/boards may not be fully machine-readable, so any "not confirmed" finding should be validated against diagrams before being treated as final.
+```
+
+## Scope Priority Rule
+
+When a capability appears in examples, configuration lists, API samples, or future notes but is explicitly marked as `Out of Scope`, `Not Supported in This Phase`, `Future Iteration`, `Excluded`, or gated by legal/regulatory approval, treat the scope statement as authoritative for the current-phase review.
+
+Do not classify such an item as a current blocking conflict unless the current-phase flow still requires the capability to be enabled.
+
+If a future/out-of-scope item appears in examples, classify it as clarity or consistency:
+
+- ensure examples label it as future/out-of-scope
+- ensure product config cannot enable it in the current phase
+- ensure QA cases and API samples do not treat it as current-phase behavior
+
+## Main Direction vs. Testable Matrix
+
+If the PRD defines the main business handling direction, such as cancel, refund, reject, retry, freeze, or sync downstream, but does not enumerate all state combinations, owners, failure handling, and acceptance criteria, do not classify the issue as Fatal by default.
+
+Use Must Improve when the missing matrix affects engineering alignment, QA, operations, reconciliation, or support handling.
+
+Use Fatal/Blocking only when the absent detail can cause money, contract, approval, status, or source-of-truth inconsistency and no main product direction is provided.
+
+Preferred wording:
+
+```md
+The PRD defines the main handling direction, but should add a scenario matrix covering state combinations, trigger system, final status, user-visible result, downstream sync, refund/retry/manual handling, and acceptance criteria.
+```
+
+## Pre-Blocking Self-Check
+
+Before listing an item under Fatal Issues / Blocking Items, verify:
+
+1. Is this truly absent, or only not found in readable text?
+2. Could the rule be in a Lark diagram, screenshot, table, comment, or linked section?
+3. Does the PRD already provide the main handling direction?
+4. Is the remaining issue better described as a missing exception matrix, owner table, acceptance criteria, or RFC follow-up?
+5. Is the concern based on a future/out-of-scope item rather than current-phase behavior?
+6. Would this issue directly cause money, contract, approval, status, or source-of-truth inconsistency in the current scope?
+
+If uncertain, downgrade to Must Improve, mark the evidence limitation, and ask an open question.
+
 ## Default Output Structure
 
 Use this structure by default:
@@ -100,6 +169,15 @@ Ask decision-driving questions for product, business, engineering, risk, legal, 
 ### Score / Readiness Judgment
 
 When scoring, give a score out of 10 and explain what would move it to the next band. Anchor the score to product logic and review readiness, not writing polish.
+
+For large, cross-system, compliance-sensitive, or platform PRDs, split scoring when one overall score would be misleading:
+
+- Product Logic Score: goal clarity, current-phase scope, main flow, business rules, user/ops outcome.
+- Engineering Readiness Score: state matrix, ownership, source of truth, data/API readiness, exception handling, reconciliation, migration, rollout, audit.
+- Governance / Compliance Readiness Score: legal/regulatory ownership, decision authority, approval gates, compliance signoff, audit requirements.
+- Overall Score: weighted judgment based on the user's review goal.
+
+Explain which dimension drives the lower score. Do not let missing RFC-level implementation details dominate the product logic score when product semantics are clear.
 
 ## Audience Mode
 
@@ -262,6 +340,7 @@ Check business and scope:
 - Goal matches current phase.
 - `In Scope`, `Out of Scope`, `Not Supported in This Phase`, and `Future Iteration` are explicit.
 - Future-phase content does not leak into current requirements.
+- Explicit out-of-scope or future-phase statements override examples unless current-phase behavior still depends on the item.
 
 Check ownership and boundaries:
 
@@ -274,6 +353,7 @@ Check flow completeness:
 - Main flow is modeled before detailed prose.
 - Creation, query, callback, update, timeout, retry, rollback, reconciliation, migration, and manual exception paths are covered when relevant.
 - Persistence points and state changes are visible.
+- If the main direction exists but testable combinations are missing, ask for a scenario matrix instead of calling the whole flow absent.
 
 Check data model adequacy:
 
@@ -307,6 +387,7 @@ Check PM accessibility:
 - Missing technical concepts are translated into business questions the PM can answer.
 - Feedback distinguishes "you must decide the business behavior" from "engineering should design the implementation."
 - Review does not punish a simple PRD for lacking platform-level sections when the scope is genuinely simple.
+- Wording distinguishes "not confirmed in readable text" from "not defined."
 
 ## Severity Guide
 
@@ -324,3 +405,5 @@ Check PM accessibility:
 - Do not make `Issue / Why it matters / Affected area / Recommended handling` the default visual structure, though you may use those dimensions internally.
 - Do not over-penalize a business PRD for missing RFC-level implementation detail.
 - Do not prescribe API, database, queue, retry job, or monitoring implementation unless the user explicitly asks for engineering design.
+- Do not overclaim with "not defined," "missing," "flow is not closed," or "blocking conflict" unless evidence has been checked across readable text, diagrams, tables, comments, screenshots, and linked sections where available.
+- Do not treat an out-of-scope or regulatory-gated item as current-phase risk unless the current-phase flow requires it.

@@ -1,11 +1,11 @@
 ---
-name: yindong-product-operating-system
+name: platform-product-operating-system
 description: Core collaboration and routing layer for complex product, platform, and fintech mid-platform work. Use when direction is unclear, a business problem needs to be abstracted into platform capability, a request needs decision support before writing, cross-system ownership or operational risk must be reasoned through, or the user needs routing among PRD building, scope governance, and PRD review.
 ---
 
-# Yindong Product Operating System
+# Platform Product Operating System
 
-Use this skill as the default operating layer for Yindong's complex product and platform work. Act as a structured thinking partner, decision-support layer, product governance assistant, review/challenge system, and long-term organizational memory layer.
+Use this skill as the default operating layer for complex platform, back-office, workflow, and fintech product work. Act as a structured thinking partner, decision-support layer, product governance assistant, review/challenge system, and long-term organizational memory layer.
 
 Do not create a personality report. Focus on observable work behavior and practical collaboration patterns.
 
@@ -24,9 +24,9 @@ Choose one mode before answering:
 Route the work before producing output:
 
 - Direction unclear or system framing needed -> use this operating system first.
-- Ready to draft PRD/BRD/requirement content -> use `yindong-prd-builder`.
-- Unsure whether to include a change in the current phase -> use `yindong-scope-governor`.
-- Existing document needs assessment -> use `yindong-prd-reviewer`.
+- Ready to draft PRD/BRD/requirement content -> use `platform-product-prd-builder`.
+- Unsure whether to include a change in the current phase -> use `platform-product-scope-governor`.
+- Existing document needs assessment -> use `platform-product-prd-reviewer`.
 
 When the user's ask is broad, do not force a full PRD. Start with the smallest useful artifact: decision brief, scope verdict, assumption ledger, flow sketch, or open-question list.
 

@@ -1,9 +1,9 @@
 ---
-name: yindong-prd-builder
+name: platform-product-prd-builder
 description: Build or improve professional PRDs, BRDs, requirement sections, and product decision artifacts from rough Chinese/English notes, prototypes, historical PRDs, meeting notes, or early ideas. Use when the user is ready to write, rewrite, translate, structure, enrich, or polish requirement content, especially for platform capability, workflow, configuration, governance, cross-system, or fintech product work.
 ---
 
-# Yindong PRD Builder
+# Platform Product PRD Builder
 
 Use this skill to convert rough input into structured, implementation-ready product requirements. Do not simply translate. Understand, reorganize, enrich, and preserve precise scope.
 
@@ -35,9 +35,9 @@ If the artifact type is unclear, propose the smallest useful artifact and contin
 
 Do not use this skill as the first move when:
 
-- the business problem or target user is still contested; first clarify direction with `yindong-product-operating-system`
-- the question is "should we do this now?"; first use `yindong-scope-governor`
-- the user only wants review feedback on an existing artifact; use `yindong-prd-reviewer`
+- the business problem or target user is still contested; first clarify direction with `platform-product-operating-system`
+- the question is "should we do this now?"; first use `platform-product-scope-governor`
+- the user only wants review feedback on an existing artifact; use `platform-product-prd-reviewer`
 - the request is a pure engineering RFC, code design, or implementation plan with no product requirement work
 
 ## PM Input Normalizer
@@ -252,9 +252,9 @@ For cross-system work:
 
 ## Routing
 
-- Route to `yindong-product-operating-system` when business direction, platform abstraction, or decision framing is not ready.
-- Route to `yindong-scope-governor` when current-phase inclusion, MVP size, or hidden complexity is unresolved.
-- Route to `yindong-prd-reviewer` after drafting when the user wants readiness, gaps, or score.
+- Route to `platform-product-operating-system` when business direction, platform abstraction, or decision framing is not ready.
+- Route to `platform-product-scope-governor` when current-phase inclusion, MVP size, or hidden complexity is unresolved.
+- Route to `platform-product-prd-reviewer` after drafting when the user wants readiness, gaps, or score.
 - Route RFC-level implementation questions to engineering follow-up while keeping product semantics in the PRD.
 
 ## Quality Checklist

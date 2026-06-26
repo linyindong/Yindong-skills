@@ -1,4 +1,0 @@
-interface:
-  display_name: "Yindong Product OS"
-  short_description: "Route and reason through complex platform product work"
-  default_prompt: "Use $yindong-product-operating-system to clarify direction, platform capability, ownership, flow, and next collaboration route."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Platform Product PRD Builder"
-  short_description: "Build PRDs and requirement artifacts from rough inputs"
-  default_prompt: "Use $platform-product-prd-builder to select the right artifact type and turn these notes into structured product requirements."

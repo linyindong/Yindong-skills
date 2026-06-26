@@ -1,0 +1,4 @@
+interface:
+  display_name: "Platform PRD Reviewer"
+  short_description: "Review PRDs with product-first readiness calibration"
+  default_prompt: "Use $platform-prd-reviewer to assess this PRD's product logic, readiness, must-fix gaps, and RFC follow-up needs."

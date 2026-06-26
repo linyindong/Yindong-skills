@@ -1,9 +1,9 @@
 ---
-name: platform-product-scope-governor
+name: platform-scope-checker
 description: Assess MVP scope, phase boundaries, build risk, change impact, and hidden complexity for product requirements. Use when the user asks whether to include something now, whether a request is actually big, how to split MVP vs future iteration, whether to validate before building, or when a feature may affect data objects, permissions, workflow, UI, APIs, operations, rollout, migration, ownership, or platform consistency.
 ---
 
-# Platform Product Scope Governor
+# Platform Scope Checker
 
 Use this skill before drafting when the user is exploring whether a requirement belongs in the current phase.
 
@@ -19,7 +19,7 @@ Choose one mode before answering:
 
 ## When NOT to Use
 
-Do not use this skill to write the full PRD; after the scope verdict, route to `platform-product-prd-builder`. Do not use it as a final document review; use `platform-product-prd-reviewer`. If the business direction itself is unclear, route to `platform-product-operating-system` first.
+Do not use this skill to write the full PRD; after the scope verdict, route to `platform-prd-builder`. Do not use it as a final document review; use `platform-prd-reviewer`. If the business direction itself is unclear, route to `platform-product-guide` first.
 
 ## First Move
 

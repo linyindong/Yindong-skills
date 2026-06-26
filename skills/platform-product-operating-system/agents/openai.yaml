@@ -1,4 +1,0 @@
-interface:
-  display_name: "Platform Product OS"
-  short_description: "Route and reason through complex platform product work"
-  default_prompt: "Use $platform-product-operating-system to clarify direction, platform capability, ownership, flow, and next collaboration route."

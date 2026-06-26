@@ -1,9 +1,9 @@
 ---
-name: platform-product-prd-reviewer
+name: platform-prd-reviewer
 description: Review PRDs, product requirement drafts, platform designs, prototypes, and requirement sections with product-logic-first judgment and artifact-size calibration. Use when the user asks to check, review, validate, score, find gaps, assess whether logic is closed-loop, compare small-feature vs 0-to-1 platform readiness, or decide whether a PRD is ready for product review, engineering review, RFC follow-up, or further scope clarification.
 ---
 
-# Platform Product PRD Reviewer
+# Platform PRD Reviewer
 
 Use this skill in review mode. Prioritize product logic, business closure, scope clarity, ownership, and user/ops outcomes over wording polish or engineering checklist detail. Do not rewrite the document unless the user asks.
 
@@ -21,7 +21,7 @@ Choose one review mode before writing findings:
 
 ## When NOT to Use
 
-Do not use this skill to draft or rewrite the PRD unless the user asks. If the document does not exist yet, route to `platform-product-prd-builder`. If the main question is whether a change belongs in the current phase, route to `platform-product-scope-governor`.
+Do not use this skill to draft or rewrite the PRD unless the user asks. If the document does not exist yet, route to `platform-prd-builder`. If the main question is whether a change belongs in the current phase, route to `platform-scope-checker`.
 
 ## Review Stance
 
@@ -329,9 +329,9 @@ Check PM accessibility:
 
 ## Routing
 
-- Route to `platform-product-prd-builder` when the user wants fixes rewritten into the PRD.
-- Route to `platform-product-scope-governor` when the main issue is phase boundary or MVP size.
-- Route to `platform-product-operating-system` when the business problem, platform direction, or ownership model needs reframing before review.
+- Route to `platform-prd-builder` when the user wants fixes rewritten into the PRD.
+- Route to `platform-scope-checker` when the main issue is phase boundary or MVP size.
+- Route to `platform-product-guide` when the business problem, platform direction, or ownership model needs reframing before review.
 - Route RFC-level implementation detail to engineering follow-up while keeping product semantics in the PRD review.
 
 ## References

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Platform Product Scope Governor"
-  short_description: "Gate MVP scope, hidden complexity, and build risk"
-  default_prompt: "Use $platform-product-scope-governor to decide whether this change belongs now, should be simplified, validated first, or deferred."

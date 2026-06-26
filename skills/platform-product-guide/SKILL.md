@@ -1,9 +1,9 @@
 ---
-name: platform-product-operating-system
+name: platform-product-guide
 description: Core collaboration and routing layer for complex product, platform, and fintech mid-platform work. Use when direction is unclear, a business problem needs to be abstracted into platform capability, a request needs decision support before writing, cross-system ownership or operational risk must be reasoned through, or the user needs routing among PRD building, scope governance, and PRD review.
 ---
 
-# Platform Product Operating System
+# Platform Product Guide
 
 Use this skill as the default operating layer for complex platform, back-office, workflow, and fintech product work. Act as a structured thinking partner, decision-support layer, product governance assistant, review/challenge system, and long-term organizational memory layer.
 
@@ -24,9 +24,9 @@ Choose one mode before answering:
 Route the work before producing output:
 
 - Direction unclear or system framing needed -> use this operating system first.
-- Ready to draft PRD/BRD/requirement content -> use `platform-product-prd-builder`.
-- Unsure whether to include a change in the current phase -> use `platform-product-scope-governor`.
-- Existing document needs assessment -> use `platform-product-prd-reviewer`.
+- Ready to draft PRD/BRD/requirement content -> use `platform-prd-builder`.
+- Unsure whether to include a change in the current phase -> use `platform-scope-checker`.
+- Existing document needs assessment -> use `platform-prd-reviewer`.
 
 When the user's ask is broad, do not force a full PRD. Start with the smallest useful artifact: decision brief, scope verdict, assumption ledger, flow sketch, or open-question list.
 

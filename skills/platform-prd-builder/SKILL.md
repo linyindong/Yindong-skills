@@ -193,6 +193,12 @@ Use this structure unless the user gives a different template:
 
 For short sections, keep only the relevant headings but preserve the same thinking order.
 
+## Use Platform Flow Modeler When
+
+Use `platform-flow-modeler` before writing Overall Flow, Flow Details, Scenarios & Edge Cases, State Transition, or Operations sections when the requirement involves 3+ systems, lifecycle/status changes, callback/retry/timeout, rollback/cancel/resubmit, reconciliation, settlement, migration, or manual fallback.
+
+Let it shape flow tables first, then convert those tables into PRD prose, requirements by system, scenarios, acceptance criteria, and open questions.
+
 ## Output Contract
 
 Every PRD-style output should make these things testable:
@@ -298,6 +304,7 @@ For cross-system work:
 ## Routing
 
 - Route to `platform-product-guide` when business direction, platform abstraction, or decision framing is not ready.
+- Route flow-heavy sections to `platform-flow-modeler` before converting them into PRD content.
 - Route to `platform-scope-checker` when current-phase inclusion, MVP size, or hidden complexity is unresolved.
 - Route to `platform-prd-reviewer` after drafting when the user wants readiness, gaps, or score.
 - Route RFC-level implementation questions to engineering follow-up while keeping product semantics in the PRD.

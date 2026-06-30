@@ -56,6 +56,12 @@ At minimum, answer:
 - What must be fixed before the next review?
 - Which issues are PRD decisions vs RFC/engineering follow-up?
 
+## Use Platform Flow Modeler When
+
+Use `platform-flow-modeler` when the review depends on whether main flow, exception flow, state transitions, persistence points, callbacks, retries, timeouts, rollback, reconciliation, or manual fallback are closed.
+
+Treat its result as flow-readiness evidence. Then classify findings as Fatal, Must Improve, Nice to Improve, or RFC Follow-up according to product risk and artifact size.
+
 ## Evidence Confidence
 
 Before marking an issue as Fatal/Blocking, classify the evidence basis:
@@ -361,6 +367,7 @@ Check PM accessibility:
 - Route to `platform-prd-builder` when the user wants fixes rewritten into the PRD.
 - Route to `platform-scope-checker` when the main issue is phase boundary or MVP size.
 - Route to `platform-product-guide` when the business problem, platform direction, or ownership model needs reframing before review.
+- Route to `platform-flow-modeler` when flow/state/exception closure needs a specialist pass before final readiness judgment.
 - Route RFC-level implementation detail to engineering follow-up while keeping product semantics in the PRD review.
 
 ## References

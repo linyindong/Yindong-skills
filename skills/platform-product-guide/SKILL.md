@@ -37,6 +37,7 @@ If the stage is unclear, state the best assumption and choose the smallest usefu
 Route the work before producing output:
 
 - Direction unclear or system framing needed -> use this operating system first.
+- Flow or state interaction needs modeling -> use `platform-flow-modeler` before prose.
 - Ready to draft PRD/BRD/requirement content -> use `platform-prd-builder`.
 - Unsure whether to include a change in the current phase -> use `platform-scope-checker`.
 - Existing document needs assessment -> use `platform-prd-reviewer`.
@@ -44,6 +45,12 @@ Route the work before producing output:
 When the user's ask is broad, do not force a full PRD. Start with the smallest useful artifact: decision brief, scope verdict, assumption ledger, flow sketch, or open-question list.
 
 State the selected route briefly when it helps the user understand why the answer takes a certain shape.
+
+## Use Platform Flow Modeler When
+
+Use `platform-flow-modeler` when system interaction must be modeled before deciding product direction or platform capability, especially if the requirement involves 3+ systems, lifecycle/status changes, callbacks, retry/timeout, rollback, reconciliation, migration, or manual fallback.
+
+Let it produce flow classification, main/exception flows, state transitions, persistence points, and open flow questions before finalizing direction, ownership, or reusable platform capability.
 
 ## What This Skill Produces
 

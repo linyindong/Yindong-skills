@@ -1,0 +1,4 @@
+interface:
+  display_name: Platform Flow Modeler
+  short_description: Model cross-system flows, states, and exception paths
+  default_prompt: Use $platform-flow-modeler to model the main flow, exception flows, state transitions, callbacks, rollback, reconciliation, and open flow questions.

@@ -100,6 +100,12 @@ Before accepting a new build into MVP, ask whether the same business goal can be
 
 If a smaller path achieves the same current-phase goal with less operational risk, recommend `Simplify for MVP`, `Validate first`, or `Add compatibility placeholder`.
 
+## Use Platform Flow Modeler When
+
+Use `platform-flow-modeler` when a proposed change may introduce new states, callbacks, retries, rollback, reconciliation, migration, manual fallback, or cross-system dependencies.
+
+Use the resulting flow model to decide whether the change should be `Include in MVP`, `Simplify for MVP`, `Validate first`, `Defer to future iteration`, `Add compatibility placeholder`, or `Reject for this product layer`.
+
 ## Small Request Expansion Check
 
 When the request sounds simple, translate it into real impact before accepting that it is small.

@@ -19,6 +19,17 @@ Choose one review mode before writing findings:
 - 0-to-1 platform calibration: apply strict cross-system, lifecycle, source-of-truth, and operations standards.
 - Readiness scoring: produce a score/readiness ladder and explain what moves it to the next band.
 
+## Step 0: Review Calibration
+
+Before writing findings, identify:
+
+- artifact type: short feature PRD, full PRD, one-page alignment doc, implementation/API note, migration PRD, configuration UI PRD, operational SOP, external integration PRD, or 0-to-1 platform PRD
+- review goal: product logic, engineering readiness, scope risk, operations readiness, or score
+- evidence type: readable text, table, image/diagram, linked source, or user summary
+- expected strictness: small local change, cross-system change, or platform capability
+
+State calibration briefly when it materially affects the review standard.
+
 ## When NOT to Use
 
 Do not use this skill to draft or rewrite the PRD unless the user asks. If the document does not exist yet, route to `platform-prd-builder`. If the main question is whether a change belongs in the current phase, route to `platform-scope-checker`.
@@ -35,6 +46,15 @@ Start by judging whether the PRD works as a product document:
 - Is it ready for product review, engineering review, or only early discussion?
 
 Keep API fields, error codes, idempotency design, callback retry implementation, storage, queue, job scheduling, and monitoring implementation visible, but classify them as RFC/engineering follow-up unless the missing detail breaks product logic, status consistency, money/contract/approval results, or ownership/source-of-truth decisions.
+
+This skill should produce readiness judgment, not only an issue list.
+
+At minimum, answer:
+
+- Does the product logic basically hold?
+- Is it ready for product review, engineering review, RFC follow-up, or further scope clarification?
+- What must be fixed before the next review?
+- Which issues are PRD decisions vs RFC/engineering follow-up?
 
 ## Evidence Confidence
 
@@ -326,6 +346,15 @@ Check PM accessibility:
 - Do not prescribe API, database, queue, retry job, or monitoring implementation unless the user explicitly asks for engineering design.
 - Do not overclaim with "not defined," "missing," "flow is not closed," or "blocking conflict" unless evidence has been checked across readable text, diagrams, tables, comments, screenshots, and linked sections where available.
 - Do not treat an out-of-scope or regulatory-gated item as current-phase risk unless the current-phase flow requires it.
+
+## Common Mistakes to Flag
+
+- Scoring a small feature PRD as if it were a 0-to-1 platform PRD.
+- Treating RFC-level implementation detail as a PRD blocker when product semantics are clear.
+- Listing many issues without an overall readiness judgment.
+- Saying "missing" when the issue is only "not confirmed in readable text."
+- Ignoring scope statements and over-focusing on examples or future notes.
+- Giving engineering implementation solutions instead of product decisions, owners, source of truth, and acceptance criteria.
 
 ## Routing
 

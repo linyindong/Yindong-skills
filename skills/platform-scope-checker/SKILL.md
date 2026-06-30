@@ -17,6 +17,17 @@ Choose one mode before answering:
 - Validation gate: decide whether demand evidence is strong enough to build now.
 - Change impact review: evaluate impact across flow, data, UI, API, permissions, operations, and migration.
 
+## Step 0: Stage Detection
+
+Before giving a verdict, classify the request:
+
+- Idea / demand signal: value is plausible but evidence may be weak.
+- Scope expansion: a proposed addition may change MVP size or phase boundary.
+- "Small" change: simple wording may hide lifecycle, API, permission, data, or operations impact.
+- Platform capability decision: the change may create reusable capability or duplicate existing capability.
+- Delivery tradeoff: timeline, dependency, or rollout risk needs a phase split.
+- PRD-ready decision: scope is clear enough to route to `platform-prd-builder`.
+
 ## When NOT to Use
 
 Do not use this skill to write the full PRD; after the scope verdict, route to `platform-prd-builder`. Do not use it as a final document review; use `platform-prd-reviewer`. If the business direction itself is unclear, route to `platform-product-guide` first.
@@ -75,6 +86,19 @@ For feature requests, separate demand evidence from opinions:
 If evidence is weak but the idea may matter, recommend a low/no-build validation step before PRD drafting.
 
 For detailed verdict definitions and impact criteria, read `references/scope-decision-rubric.md` when the decision is high-stakes, cross-system, or contested.
+
+## Challenge the Build
+
+Before accepting a new build into MVP, ask whether the same business goal can be achieved by:
+
+- reusing existing capability
+- adding configuration instead of new behavior
+- narrowing supported scenarios
+- keeping rare cases manual in this phase
+- adding a future-compatible placeholder
+- validating demand before implementation
+
+If a smaller path achieves the same current-phase goal with less operational risk, recommend `Simplify for MVP`, `Validate first`, or `Add compatibility placeholder`.
 
 ## Small Request Expansion Check
 
@@ -187,6 +211,10 @@ Default answer shape:
 
 For quick questions, keep the answer short but still include a verdict.
 
+This skill should produce a decision gate, not only impact analysis.
+
+If evidence is insufficient, the output should still include a verdict such as `Validate first` plus the cheapest next validation step.
+
 ## Quality Checklist
 
 Before finalizing, verify:
@@ -197,6 +225,15 @@ Before finalizing, verify:
 - [ ] Current phase and future phase are not mixed.
 - [ ] Hidden impact across data, flow, ownership, API, UI, operations, rollout, and migration is considered.
 - [ ] The next route is clear: PRD builder, operating-system framing, PRD reviewer, validation, or RFC follow-up.
+
+## Common Mistakes to Flag
+
+- Accepting "just add..." requests without checking lifecycle, permissions, audit, rollback, or downstream impact.
+- Letting future-phase capability leak into MVP because examples mention it.
+- Treating weak demand signals as delivery commitments.
+- Creating one-off platform behavior for a single business exception.
+- Recommending defer without naming temporary owner or manual handling.
+- Giving pros/cons without a clear verdict.
 
 ## References
 

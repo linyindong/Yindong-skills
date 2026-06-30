@@ -16,6 +16,7 @@ Choose the lightest mode that satisfies the request:
 - Rewrite / polish: improve structure, clarity, English, or bilingual wording without changing decisions.
 - Input normalization: convert scattered notes into confirmed decisions, assumptions, missing decisions, and engineering-readable language before drafting.
 - Template fit: choose the right artifact type when the request is not necessarily a full PRD.
+- Direction alignment draft: create a lightweight concept / alignment version before expanding into a full PRD.
 
 ## First Move
 
@@ -30,6 +31,39 @@ Briefly identify:
 If the user only asks for impact or feasibility, do not draft the PRD yet; use impact analysis first.
 
 If the artifact type is unclear, propose the smallest useful artifact and continue unless that choice would create delivery risk.
+
+## Step 0: Stage Detection
+
+Before drafting, classify the user's stage:
+
+- Idea only: create a direction alignment draft first.
+- Scattered notes: normalize decisions, assumptions, and missing decisions first.
+- Scope unsettled: route to `platform-scope-checker` before drafting current-phase requirements.
+- Ready to draft: build the requested PRD or section.
+- Existing draft: improve structure or route to `platform-prd-reviewer` if the user wants feedback.
+- RFC detail request: keep product semantics in the PRD and route implementation specifics to engineering follow-up.
+
+## Build Challenge Gate
+
+Before turning a request into a build-heavy PRD, briefly challenge whether the same business goal can be achieved by:
+
+- existing platform capability
+- configuration
+- operational process or temporary manual handling
+- smaller workflow change
+- phased rollout
+- compatibility placeholder without full current-phase behavior
+
+If the answer is unclear or the build risk is high, recommend a scope check before writing a full PRD.
+
+## Two-Phase Delivery
+
+For ambiguous, 0-to-1, or large cross-system requirements, prefer two phases:
+
+1. Direction Alignment Draft: problem, target users/ops, platform capability, scope boundary, core flow, ownership, assumptions, and open decisions.
+2. Detailed PRD: requirements by system, field/API/data changes, state/edge cases, rollout/operations, acceptance criteria, and risks.
+
+Do not jump to the detailed PRD when core product direction, MVP boundary, or source of truth is still unsettled.
 
 ## When NOT to Use
 
@@ -179,6 +213,8 @@ Default response shape:
 3. Assumptions and open decisions, if any
 4. Suggested next review route: scope check, PRD review, RFC follow-up, or stakeholder confirmation
 
+This skill should produce an artifact, not only advice. If the artifact cannot be produced safely, output the missing-decision ledger and the next action instead.
+
 For detailed PRD templates and artifact-specific output contracts, read `references/prd-output-contract.md` when the task involves a full PRD, 0-to-1 platform PRD, migration PRD, configuration UI PRD, or API/data change note.
 
 ## API / Data Table Style
@@ -249,6 +285,15 @@ For cross-system work:
 - Do not output code when the user asks for requirements.
 - Do not over-polish into marketing language.
 - Do not hide open decisions; list them clearly with owner/dependency when known.
+
+## Common Mistakes to Flag
+
+- Drafting detailed requirements before direction alignment is ready.
+- Turning assumptions into requirements without labeling them.
+- Mixing current MVP with future iteration behavior.
+- Writing only page/button behavior while leaving states, ownership, and exception handling implicit.
+- Over-prescribing database, queue, retry job, or service design in the PRD.
+- Treating an implementation request as product-ready without checking the business goal and scope boundary.
 
 ## Routing
 

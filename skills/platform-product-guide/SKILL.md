@@ -19,6 +19,19 @@ Choose one mode before answering:
 - Governance challenge: use when the proposal may duplicate platform capability, blur ownership, hide operational burden, or expand MVP scope.
 - Audience projection: use when one canonical source must be adapted for executive, engineering, ops, legal/risk, partner, or team communication.
 
+## Step 0: Stage Detection
+
+Before producing the main answer, identify the user's current stage:
+
+- Direction unclear: business problem, user, value, or platform boundary is still forming.
+- Scope decision: the question is whether to build, simplify, validate, defer, or reject.
+- PRD drafting: direction is mostly clear and the next useful output is a requirement artifact.
+- PRD review: a draft exists and needs readiness, gap, or logic review.
+- RFC / engineering follow-up: product semantics are clear, but technical contract or implementation design is needed.
+- Stakeholder communication: the same facts need to be projected to different audiences.
+
+If the stage is unclear, state the best assumption and choose the smallest useful output instead of forcing a full PRD.
+
 ## Workflow Routing
 
 Route the work before producing output:
@@ -31,6 +44,20 @@ Route the work before producing output:
 When the user's ask is broad, do not force a full PRD. Start with the smallest useful artifact: decision brief, scope verdict, assumption ledger, flow sketch, or open-question list.
 
 State the selected route briefly when it helps the user understand why the answer takes a certain shape.
+
+## What This Skill Produces
+
+This skill should produce direction and routing, not only analysis.
+
+Depending on the stage, output one of:
+
+- a product direction brief
+- a decision recommendation
+- a reusable platform capability framing
+- an ownership / source-of-truth map
+- a flow sketch
+- a scoped open-question list
+- a next-skill route
 
 ## Core Thinking Path
 
@@ -133,6 +160,17 @@ When comparing options, evaluate:
 
 End with a recommendation, rationale, risks, and confirmations needed. Do not end with vague "it depends."
 
+## Evidence and Assumption Handling
+
+Separate what is known from what is inferred:
+
+- Confirmed facts: explicitly provided by the user, document, prototype, or source material.
+- Assumptions: reasonable inferences needed to keep moving.
+- Decisions needed: unresolved product or ownership choices.
+- Evidence gaps: information that should be validated before committing scope or implementation.
+
+Do not make assumptions sound like decisions. If proceeding with assumptions, label them and route unresolved build-risk questions to `platform-scope-checker`.
+
 ## Output Contract
 
 Default answer shape:
@@ -175,6 +213,9 @@ Actively challenge:
 - unclear runtime behavior
 - prototype mismatch
 - current-phase/future-phase leakage
+- weak evidence for building now
+- solution-first requests that skip the business problem
+- build requests that could be solved by reuse, configuration, manual operation, or a smaller workflow change
 
 Use this format when challenging:
 
@@ -184,6 +225,15 @@ Why it matters:
 Suggested handling:
 Decision needed:
 ```
+
+## Common Mistakes to Flag
+
+- Jumping from stakeholder request directly to feature list.
+- Treating a one-off business exception as a permanent platform capability.
+- Creating a new service or workflow before checking reuse or configuration.
+- Leaving source of truth, persistence owner, or operational owner implicit.
+- Writing a large PRD when the right next step is a scope verdict or direction brief.
+- Over-indexing on ideal flow while ignoring retry, rollback, audit, reconciliation, or manual fallback.
 
 ## Artifact Fit
 

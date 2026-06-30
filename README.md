@@ -218,6 +218,23 @@ Chinese prompts also work:
 用 $platform-scope-checker 判断这个能力是否应该进 Phase 1。
 ```
 
+## Example Prompts
+
+```text
+Use $platform-product-guide to clarify this cross-system requirement before we write a PRD.
+Use $platform-prd-builder to turn these meeting notes into a platform PRD.
+Use $platform-scope-checker to decide whether this workflow change belongs in MVP.
+Use $platform-prd-reviewer to review this PRD for product logic and engineering readiness.
+```
+
+For stronger results, include the product context, current phase, target audience, and whether you want a quick pass or a strict review.
+
+## Works With
+
+This repo is Codex-native. The skills are written in Codex `SKILL.md` format and can be installed into `~/.codex/skills`.
+
+They can also be reused as structured markdown instructions in other AI agents that support custom skills, project instructions, or file-based context. In those environments, load or paste the relevant `SKILL.md` and ask the agent to follow it.
+
 ## Suggested Workflow
 
 For a new complex requirement:
@@ -500,6 +517,23 @@ Use $platform-scope-checker to assess whether this change belongs in Phase 1.
 用 $platform-prd-reviewer 检查这份 PRD 是否逻辑闭环。
 用 $platform-scope-checker 判断这个能力是否应该进 Phase 1。
 ```
+
+## 示例 Prompt
+
+```text
+Use $platform-product-guide to clarify this cross-system requirement before we write a PRD.
+Use $platform-prd-builder to turn these meeting notes into a platform PRD.
+Use $platform-scope-checker to decide whether this workflow change belongs in MVP.
+Use $platform-prd-reviewer to review this PRD for product logic and engineering readiness.
+```
+
+效果更好的做法：同时提供产品背景、当前 phase、目标读者，以及你希望快速看一遍还是严格 review。
+
+## 支持哪些工具？
+
+这个仓库是 Codex-native 的。Skills 使用 Codex `SKILL.md` 格式，可以安装到 `~/.codex/skills`。
+
+如果其他 AI 工具支持 custom skills、project instructions 或基于文件的上下文，也可以复用这些 skills。使用方式是读取或粘贴对应的 `SKILL.md`，并要求 AI 按其中规则执行。
 
 ## 推荐使用场景
 

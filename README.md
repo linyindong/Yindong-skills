@@ -221,6 +221,32 @@ You can install all skills, or only copy the ones you want to use.
 
 In Codex, explicitly mention the skill name with `$skill-name`.
 
+The simplest way to try a skill in any AI tool is to paste the GitHub skill link and your task:
+
+```text
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-reviewer
+Review this PRD: [paste or attach PRD]
+```
+
+Copy-ready examples:
+
+```text
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-product-guide
+Help me clarify this platform requirement: [context]
+
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-builder
+Turn these notes into a PRD: [notes]
+
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-reviewer
+Review this PRD: [PRD]
+
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-scope-checker
+Assess whether this change should be included in the current phase: [change]
+
+Use this skill: https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-flow-modeler
+Model the flow for this cross-system requirement: [scenario]
+```
+
 Examples:
 
 ```text
@@ -599,6 +625,32 @@ cp -R skills/platform-flow-modeler ~/.codex/skills/
 ## 使用方法
 
 在 Codex 中，通过 `$skill-name` 显式调用对应 skill。
+
+最简单的试用方法：把 GitHub 上对应 skill 的链接发给 AI，再加上你的任务。
+
+```text
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-reviewer
+Review 一下这份 PRD：[粘贴或上传 PRD]
+```
+
+可直接复制的例子：
+
+```text
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-product-guide
+帮我梳理这个平台型需求方向：[背景]
+
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-builder
+把这些笔记整理成 PRD：[笔记]
+
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-prd-reviewer
+Review 一下这份 PRD：[PRD]
+
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-scope-checker
+判断这个改动是否应该进入当前 phase：[改动]
+
+使用这个 skill：https://github.com/linyindong/platform-product-skills/tree/main/skills/platform-flow-modeler
+帮我梳理这个跨系统需求的 flow：[场景]
+```
 
 示例：
 

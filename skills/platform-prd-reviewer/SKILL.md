@@ -1,19 +1,22 @@
 ---
 name: platform-prd-reviewer
-description: Review PRDs, product requirement drafts, platform designs, prototypes, and requirement sections with product-logic-first judgment and artifact-size calibration. Use when the user asks to check, review, validate, score, find gaps, assess whether logic is closed-loop, compare small-feature vs 0-to-1 platform readiness, or decide whether a PRD is ready for product review, engineering review, RFC follow-up, or further scope clarification.
+description: Review PRDs, product requirement drafts, platform designs, prototypes, and requirement sections with PRD-quality-first judgment, document-specific findings, product-logic closure, and artifact-size calibration. Use when the user asks to check, review, validate, score, find gaps, help a PM improve the next PRD version, assess whether logic is closed-loop, compare small-feature vs 0-to-1 platform readiness, or decide whether a PRD is ready for product review, engineering review, RFC follow-up, or further scope clarification.
 ---
 
 # Platform PRD Reviewer
 
-Use this skill in review mode. Prioritize product logic, business closure, scope clarity, ownership, and user/ops outcomes over wording polish or engineering checklist detail. Do not rewrite the document unless the user asks.
+Use this skill in review mode. Prioritize PRD quality, product logic, business closure, scope clarity, ownership, and user/ops outcomes over wording polish or engineering checklist detail. Do not rewrite the document unless the user asks.
 
 First calibrate the review depth. A short feature PRD, implementation note, API change note, one-page alignment doc, and large 0-to-1 platform PRD should not be judged by the same completeness standard.
+
+Default posture: act first as a PRD quality reviewer for PMs and product leaders, then as a product-logic reviewer, then as a platform/engineering readiness reviewer.
 
 ## Operating Modes
 
 Choose one review mode before writing findings:
 
 - PM-friendly review: judge whether the product logic is understandable and what must be fixed next.
+- PRD quality review: find document-specific contradictions, unclear scope, ambiguous fields, mismatched tables/examples, and concrete next-version fixes.
 - Engineering-readiness review: check ownership, state, data/API, rollout, audit, and operational completeness.
 - Small-feature calibration: review a short or local PRD without forcing full platform standards.
 - 0-to-1 platform calibration: apply strict cross-system, lifecycle, source-of-truth, and operations standards.
@@ -26,6 +29,7 @@ Before writing findings, identify:
 - artifact type: short feature PRD, full PRD, one-page alignment doc, implementation/API note, migration PRD, configuration UI PRD, operational SOP, external integration PRD, or 0-to-1 platform PRD
 - review goal: product logic, engineering readiness, scope risk, operations readiness, or score
 - evidence type: readable text, table, image/diagram, linked source, or user summary
+- primary user: PRD author/PM, product leader, engineering reviewer, QA/ops reviewer, or platform governance reviewer
 - expected strictness: small local change, cross-system change, or platform capability
 
 State calibration briefly when it materially affects the review standard.
@@ -42,6 +46,7 @@ Start by judging whether the PRD works as a product document:
 - Is the main flow logically closed?
 - Is scope clear?
 - Are there logic conflicts?
+- Are there document-specific contradictions between scope, flow, tables, fields, API samples, examples, screenshots, or acceptance criteria?
 - Are there fatal product gaps?
 - Is it ready for product review, engineering review, or only early discussion?
 
@@ -55,6 +60,27 @@ At minimum, answer:
 - Is it ready for product review, engineering review, RFC follow-up, or further scope clarification?
 - What must be fixed before the next review?
 - Which issues are PRD decisions vs RFC/engineering follow-up?
+
+## Document-Specific Review First
+
+Before applying generic platform or engineering checklists, scan for concrete issues inside the PRD itself.
+
+Prioritize findings that point to a specific section, table, field, status, API sample, flow step, button/action, screenshot, or acceptance criterion. Look especially for:
+
+- Scope vs API / JSON / example conflicts
+- Scope vs future capability leakage
+- summary table vs step-by-step flow conflicts
+- status descriptions that contradict actions, buttons, editability, or lifecycle rules
+- field names or payload values whose business meaning is unclear
+- duplicate actors, approvers, owners, or responsibilities
+- user/ops-visible behavior that differs across sections
+- acceptance criteria that do not test the main flow or key edge cases
+
+For PM-facing or product-leader review, include the top 3-5 document-specific issues before broader platform risk notes. If no strong document-specific issues exist, say so briefly, then continue to product logic and engineering readiness.
+
+Do not write generic advice such as "add source of truth," "add state machine," "add exception matrix," or "define callback retry" unless it is tied to a concrete document location or a specific business consequence.
+
+Use broader platform concerns as supporting findings, RFC follow-up, or open questions unless they directly break product logic, status consistency, money/contract/approval result, or source-of-truth ownership.
 
 ## Use Platform Flow Modeler When
 
@@ -147,6 +173,7 @@ Use this structure by default:
 
 Briefly cover:
 
+- whether the PRD itself is clear, internally consistent, and actionable
 - requirement goal clarity
 - main-flow closure
 - scope clarity
@@ -170,18 +197,21 @@ Do not classify every missing API field, error code, or engineering detail as bl
 
 ### Must Improve
 
-List product-side decisions that must be clarified. Use clear mini-headings instead of making `Issue:` the visual structure.
+List product-side decisions and document-specific issues that must be clarified. Use clear mini-headings instead of making `Issue:` the visual structure.
 
 Preferred format:
 
 ```md
-**1. Returned resubmission semantics need to be clarified**
+**1. Section 7.1 JSON example conflicts with the MVP scope**
+Document location / evidence:
 Problem:
-Why it matters:
-Suggested product decision:
+Why it matters for PM / engineering / QA / ops:
+Suggested PM next-version change:
 ```
 
-Suggestions should define business semantics, user/ops-visible behavior, status meaning, source of truth, ownership, acceptance criteria, and manual handling. Do not prescribe engineering implementation unless the user asks.
+Each Must Improve item should be specific enough that the PRD author knows where to edit next. Suggestions should define business semantics, user/ops-visible behavior, status meaning, source of truth, ownership, acceptance criteria, and manual handling. Do not prescribe engineering implementation unless the user asks.
+
+Keep Must Improve focused. Prefer the top 3-5 issues that materially affect PRD quality, product logic, implementation understanding, QA coverage, or operational handling. Move correct-but-secondary platform concerns to Nice to Improve, RFC Follow-up, or Open Questions.
 
 ### Nice to Improve
 
@@ -229,7 +259,8 @@ Choose the output mode based on the user's request and likely audience.
 PM-friendly review:
 
 - Use when the document is early, written by a less technical PM, or the user asks for overall quality.
-- Start with whether the product logic is understandable and what the next concrete fixes are.
+- Start with whether the PRD itself is clear, internally consistent, and actionable.
+- Identify concrete sections, fields, tables, examples, or statuses that the author can fix in the next version.
 - Translate technical gaps into business consequences.
 - Avoid overwhelming the author with a long engineering checklist unless the risk is blocking.
 
@@ -286,6 +317,7 @@ Check business and scope:
 - `In Scope`, `Out of Scope`, `Not Supported in This Phase`, and `Future Iteration` are explicit.
 - Future-phase content does not leak into current requirements.
 - Explicit out-of-scope or future-phase statements override examples unless current-phase behavior still depends on the item.
+- Scope, examples, API samples, screenshots, tables, and acceptance criteria do not contradict each other.
 
 Check ownership and boundaries:
 
@@ -331,6 +363,7 @@ Check PM accessibility:
 
 - Missing technical concepts are translated into business questions the PM can answer.
 - Feedback distinguishes "you must decide the business behavior" from "engineering should design the implementation."
+- Must Improve items tell the PM exactly where to edit and what product decision to make next.
 - Review does not punish a simple PRD for lacking platform-level sections when the scope is genuinely simple.
 - Wording distinguishes "not confirmed in readable text" from "not defined."
 
@@ -345,10 +378,12 @@ Check PM accessibility:
 
 - Do not focus on wording before logic.
 - Do not turn review into a full rewrite.
+- Do not start with generic platform checklist feedback when concrete document contradictions are present.
 - Do not over-index on compliance unless the user frames the work as compliance-related.
 - Do not infer personal traits from document style.
 - Do not make `Issue / Why it matters / Affected area / Recommended handling` the default visual structure, though you may use those dimensions internally.
 - Do not over-penalize a business PRD for missing RFC-level implementation detail.
+- Do not say only "add a state machine/source of truth/exception matrix/callback retry"; tie the advice to a specific section, field, status, flow, or business consequence.
 - Do not prescribe API, database, queue, retry job, or monitoring implementation unless the user explicitly asks for engineering design.
 - Do not overclaim with "not defined," "missing," "flow is not closed," or "blocking conflict" unless evidence has been checked across readable text, diagrams, tables, comments, screenshots, and linked sections where available.
 - Do not treat an out-of-scope or regulatory-gated item as current-phase risk unless the current-phase flow requires it.
@@ -357,6 +392,8 @@ Check PM accessibility:
 
 - Scoring a small feature PRD as if it were a 0-to-1 platform PRD.
 - Treating RFC-level implementation detail as a PRD blocker when product semantics are clear.
+- Giving correct but generic platform advice that does not tell the PM where to edit.
+- Missing concrete contradictions between scope, examples, tables, API samples, fields, flows, and acceptance criteria.
 - Listing many issues without an overall readiness judgment.
 - Saying "missing" when the issue is only "not confirmed in readable text."
 - Ignoring scope statements and over-focusing on examples or future notes.
